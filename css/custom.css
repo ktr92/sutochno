@@ -1,0 +1,25 @@
+.suggest-list {
+  display: none;
+}
+.suggest-list.active {
+  display: block;
+}
+
+.select-guests__main {
+  display: none;
+}
+.select-guests__main.active {
+  display: block;
+}
+
+[data-toggleblock] {
+  display: none;
+}
+
+[data-toggleblock].active {
+  display: block;
+}
+.ui-switcher input:checked + .ui-switcher__dot[data-v-1ef93adc] {
+  background: #f51449;
+  justify-content: flex-end;
+}
