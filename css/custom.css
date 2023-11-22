@@ -190,3 +190,24 @@
 
 .filter__price {
   width: 100%; }
+
+
+  @media (max-width: 1023px) {
+    .mx-datepicker-popup {
+      top: 0 !important;
+    }
+    .search-widget-field[data-v-7c2b7dcd] {
+      flex-wrap: wrap;
+    }
+    .search-widget-field[data-v-7c2b7dcd] > div {
+      width: 100% !important;
+      margin-bottom: 10px;
+    }
+    .search-widget-select-city {
+      display: none !important;
+    }
+     * {
+      max-width: 100% !important;
+    }
+    
+  }
