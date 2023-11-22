@@ -1,0 +1,107 @@
+.wd_seo_visual_notifier {
+	/* Base params */
+	height:0;
+	position:fixed;
+	z-index:9999;
+	/* Styles */
+	bottom:0;
+	font:normal 14px/18px "Arial", "Helvetica", sans-serif;
+	left:0;
+	padding:0 15px;
+	right:0;
+	text-align:left;
+}
+.wd_seo_visual_notifier_center {
+	text-align:center;
+}
+.wd_seo_visual_notifier_right {
+	text-align:right;
+}
+.wd_seo_visual_notifier_button {
+	/* Base params */
+	bottom:15px;
+	top:-40px;
+	opacity:0.9;
+	position:relative;
+	/* Styles */
+	background:#fff;
+	border-radius:2px;
+	box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.5);
+	border:1px solid silver;
+	display:inline-block;
+	padding:4px 16px 4px 34px;
+}
+.wd_seo_visual_notifier_button:before {
+	/* Styles */
+	background:#fff url("/bitrix/themes/.default/icons/webdebug.seo/menuicon.png") no-repeat 0 0;
+	content:'';
+	height:16px;
+	left:8px;
+	margin-top:-9px;
+	position:absolute;
+	top:50%;
+	width:16px;
+}
+.wd_seo_visual_notifier_baloon {
+	/* Base params */
+	bottom:5px;
+	left:5px;
+	position:absolute;
+	right:5px;
+	z-index:-1;
+	visibility:hidden;
+	/* Styles */
+	box-shadow:0 0 20px 0 rgb(0, 0, 0.75);
+	max-height:300px;
+	opacity:0;
+	overflow:auto;
+	text-align:left;
+	transition:0.15s;
+}
+.wd_seo_visual_notifier:hover > .wd_seo_visual_notifier_button + .wd_seo_visual_notifier_baloon {
+	/* Base params */
+	z-index:1;
+	visibility:visible;
+	/* Styles */
+	opacity:1;
+}
+.wd_seo_visual_notifier_content {
+	/* Styles */
+	background:#fff;
+	border-radius:2px;
+	padding:10px 15px;
+}
+.wd_seo_visual_notifier_header {
+	/* Styles */
+	border-bottom:1px solid gray;
+	margin-bottom:10px;
+	padding-bottom:6px;
+}
+.wd_seo_visual_notifier_title {
+	/* Styles */
+	font-weight:bold;
+}
+.wd_seo_visual_notifier_settings {
+	/* Styles */
+	float:right;
+	text-align:right;
+}
+.wd_seo_visual_notifier_settings a {
+	/* Styles */
+	background:#fff url("/bitrix/themes/.default/icons/webdebug.seo/menuicon.png") no-repeat 0 0;
+	display:inline-block;
+	height:16px;
+	line-height:16px;
+	padding-left:24px;
+}
+.wd_seo_visual_notifier_content_item {
+	/* Styles */
+	margin-bottom:4px;
+}
+.wd_seo_visual_notifier_content_item:last-child {
+	margin-bottom:0;
+}
+.wd_seo_visual_notifier_content_item a {
+	font-size:90%;
+	font-style:italic;
+}

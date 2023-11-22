@@ -1,0 +1,78 @@
+function wdSeoWmPopupInit(id, popup, title){
+	let buttons = [];
+	popup.id = id;
+	popup.SetTitle(title);
+	buttons.push({
+		'name': BX.message('WD_SEO_WM_POPUP_BTN_SAVE'),
+		'className': 'adm-btn-green',
+		'id': 'wd_seo_wm_popup_save',
+		'action': function(){
+			let
+				popup = this.parentWindow,
+				form = $('form', popup.PARTS.CONTENT_DATA),
+				url = form.attr('action');
+				get = {
+					save: 'Y',
+					ajax_action: '' // For auto-convert encoding at Helper::getRequestQuery();
+				},
+				post = form.serialize();
+			wdSeoAjax(url, get, post, function(arJsonResult){
+				if(typeof arJsonResult.Message == 'string' && arJsonResult.Message.length){
+					alert(arJsonResult.Message);
+				}
+				if(arJsonResult.Success){
+					popup.Close();
+					location.reload();
+				}
+			}, function(status, error){
+				alert('Error');
+				console.log(status);
+				console.log(error);
+			});
+		}
+	});
+	if(id){
+		buttons.push({
+			'name': BX.message('WD_SEO_WM_POPUP_BTN_DELETE'),
+			'id': 'wd_seo_wm_popup_delete',
+			'action': function(){
+				let
+					popup = this.parentWindow,
+					form = $('form', popup.PARTS.CONTENT_DATA),
+					url = form.attr('action');
+					get = {
+						delete: 'Y',
+						ajax_action: '' // For auto-convert encoding at Helper::getRequestQuery();
+					};
+				if(!confirm(BX.message('WD_SEO_WM_POPUP_BTN_DELETE_CONFIRM'))){
+					return;
+				}
+				wdSeoAjax(url, get, {}, function(arJsonResult){
+					if(typeof arJsonResult.Message == 'string' && arJsonResult.Message.length){
+						alert(arJsonResult.Message);
+					}
+					if(arJsonResult.Success){
+						popup.Close();
+						location.reload();
+					}
+				}, function(status, error){
+					alert('Error');
+					console.log(status);
+					console.log(error);
+				});
+			}
+		});
+	}
+	buttons.push({
+		'name': BX.message('WD_SEO_WM_POPUP_BTN_CLOSE'),
+		'id': 'wd_seo_wm_popup_close',
+		'action': function(){
+			this.parentWindow.Close();
+		}
+	});
+	popup.SetButtons(buttons);
+	if(id){
+		document.getElementById('wd_seo_wm_popup_delete').style.float = 'right';
+		document.getElementById('wd_seo_wm_popup_delete').style.color = 'maroon';
+	}
+}

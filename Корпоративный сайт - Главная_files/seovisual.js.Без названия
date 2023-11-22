@@ -1,0 +1,151 @@
+(function(){
+
+	/**
+	 * Map for get data
+	 */
+	let map = {
+		'title': 'title',
+		'description': 'meta[name="description"]',
+		'keywords': 'meta[name="keywords"]',
+		'h1': 'h1',
+		'canonical': 'link[rel="canonical"]',
+		'robots': 'meta[name="robots"]',
+	};
+
+	/**
+	 * Get current seo data on page
+	 */
+	function getData(){
+		let
+			result = {},
+			site = BX.message('SITE_ID'),
+			documentRoot = BX.message('WD_SEOVISUAL_DOCUMENT_ROOT');
+		if(typeof documentRoot == 'string' && documentRoot.length){
+			site = site + ': ' + documentRoot;
+		}
+		result.site_id = [site];
+		result.url = [location.pathname + location.search];
+		if(BX.message('WD_SEOVISUAL_URL_REAL')){
+			let url = BX.message('WD_SEOVISUAL_URL_REAL');
+			if(BX.message('WD_SEOVISUAL_URL_REAL_EDIT')){
+				url += BX.message('WD_SEOVISUAL_URL_REAL_EDIT') + '</a>';
+			}
+			result.url_real = [url];
+		}
+		for(let item in map){
+			let	nodes = document.querySelectorAll(map[item]);
+			result[item] = [];
+			for(let i = 0; i < nodes.length; ++i) {
+				result[item].push(getNodeContent(nodes[i]));
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Get text content for each node type
+	 */
+	function getNodeContent(node){
+		let	result = '';
+		switch(node.tagName){
+			case 'TITLE':
+				result = node.text;
+				break;
+			case 'META':
+				result = node.content;
+				break;
+			case 'LINK':
+				result = node.href;
+				break;
+			default:
+				result = node.textContent;
+				break;
+		}
+		return result;
+	}
+
+	/**
+	 * Create html element tag
+	 */
+	function e(tagName, className, html, attributes, children){
+		let result = document.createElement(tagName);
+		if(typeof className == 'string' && className.length){
+			result.setAttribute('class', className);
+		}
+		if(typeof html == 'string' && html.length){
+			result.innerHTML = html;
+		}
+		if(attributes !== null && typeof attributes == 'object'){
+			for(let attribute in attributes){
+				result.setAttribute(attribute, attributes[attribute]);
+			}
+		}
+		appendChilds(result, children);
+		return result;
+	}
+
+	/**
+	 * Append children to element
+	 */
+	function appendChilds(element, children){
+		if(element && children !== null && typeof children == 'object' && children.length){
+			for(let i in children){
+				element.appendChild(children[i]);
+			}
+		}
+	}
+
+	/**
+	 * Build result html
+	 */
+	function createHtml(){
+		let data = getData(),
+			items = [],
+			className = BX.message('WD_SEO_VISUAL_CLASS'),
+			oldNotifier = document.getElementsByClassName('wd_seo_visual_notifier');
+		if(oldNotifier.length){
+			for(let index in oldNotifier){
+				if(oldNotifier.hasOwnProperty(index)){
+					oldNotifier[index].remove();
+				}
+			}
+		}
+		for(let item in data){
+			for(let i in data[item]){
+				items.push(e('div', 'wd_seo_visual_notifier_content_item', null, null, [
+					e('b', null, BX.message('WD_SEOVISUAL_SEO_'+item.toUpperCase()), null),
+					e('span', null, ': ', null),
+					e('span', null, data[item][i], null)
+				]));
+			}
+		}
+		className = typeof className == 'string' && className.length ? ' ' + className : '';
+		document.body.appendChild(e('div', 'wd_seo_visual_notifier' + className, null, null, [
+			e('div', 'wd_seo_visual_notifier_button', BX.message('WD_SEOVISUAL_BUTTON'), null),
+			e('div', 'wd_seo_visual_notifier_baloon', null, null, [
+				e('div', 'wd_seo_visual_notifier_content', '', null, [
+					e('div', 'wd_seo_visual_notifier_header', '', null, [
+						e('div', 'wd_seo_visual_notifier_settings', null, null, [
+							e('a', null, BX.message('WD_SEOVISUAL_SETTINGS_TITLE'), {
+								href: BX.message('WD_SEOVISUAL_SETTINGS_HREF'),
+								target: '_blank'
+							})
+						]),
+						e('div', 'wd_seo_visual_notifier_title', BX.message('WD_SEOVISUAL_TITLE'), null)
+					]),
+					e('div', 'wd_seo_visual_notifier_items', '', null, items)
+				])
+			]),
+		]));
+	}
+
+	/**
+	 * Start work on document ready
+	 */
+	document.addEventListener('DOMContentLoaded', function(event){
+		createHtml();
+	});
+
+	window.wdSeoRefreshSeoVisual = createHtml;
+	
+})();
