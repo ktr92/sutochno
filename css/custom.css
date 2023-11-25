@@ -4,7 +4,7 @@
 .suggest-list.active {
   display: block;
 }
-
+ 
 .select-guests__main {
   display: none;
 }
@@ -220,16 +220,73 @@
   display: none;
 }
 
+.bar-search__item__colswrapper {
+  display: flex;
+}
+.btnfilter{
+  display: none !important;
+}
+
+.sc-modal-header  {
+  display: none;
+}
+.dpicker__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sc-modal-ok {
+  color: #fff;
+  font-weight: bold;
+  background:  rgb(68, 68, 68);
+  padding: 5px 10px 3px 10px;
+  line-height: 16px;
+  border-radius: 50px 50px 50px 50px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.main-datepicker-calendar--footer[data-v-1166afda] {
+  background-color: #fff;
+  display: none;
+  padding: 5px;
+
+}
+
+.button.button_dark-gray {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  padding: 8px 20px;
+  margin-left: auto;margin-right: auto;
+  background-color: rgb(68, 68, 68);
+  border: 1px solid rgba(0,0,0,.15);
+  color: #fff;
+  
+}
+
+.day_inner {
+  border: none;
+}
+.search_datepicker.search_datepicker_inner {
+  width: 120px;
+}
+
 @media (max-width: 1023px) {
   .mx-datepicker-popup {
     top: 0 !important;
   }
   .search-widget-field[data-v-7c2b7dcd] {
     flex-wrap: wrap;
+    box-shadow: none;
   }
   .search-widget-field[data-v-7c2b7dcd] > div {
     width: 100% !important;
     margin-bottom: 10px;
+  }
+  .search-widget .search-widget-field--suggestions[data-v-7c2b7dcd] {
+    border: none
   }
   .search-widget-select-city {
     display: none !important;
@@ -256,7 +313,7 @@
   }
   .dpicker__wrapper {
     width: 100%;
-    padding: 5px 20px;
+    padding: 5px 10px;
     border-radius: 555px;
     margin-bottom: 10px;
     background: #fff;
@@ -319,6 +376,7 @@
   }
   button.mx-btn.mx-btn-text.mx-btn-icon-left {
     top: 32px;
+    left: 0;
   }
   .mx-calendar-content .cell {
     width: 34px;
@@ -334,4 +392,350 @@
   .box .tooltip {
     display: none !important
   }
+  .side-menu {
+    z-index: -99999;
+    left: -99999px;
+    margin: 0;
+    padding: 0 !important;
+    width: 100%;
+    position: absolute;
+    top: 0;
+
+  }
+  .bar--desktop .bar-search[data-v-4da8c010] {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+/*   .bar--desktop .bar-search[data-v-4da8c010] > div {
+    width: 100%  !important;
+  } */
+
+  .bar-search__item {
+    width: 100% !important;
+  }
+  .bar-search__item.bar-search__item--city {
+    width: 100% !important;
+  }
+  .search-desktop[data-v-60a68c13] {
+    display: block;
+  }
+  .bar--desktop .bar-search[data-v-4da8c010] {
+    height: unset;
+    background: #fff;
+    padding: 15px 0;
+  }
+  .bar-search[data-v-4da8c010] .suggest-wrapper:after {
+    display: none;
+  }
+  .bar-search__item[data-v-4da8c010]:not(:last-of-type):after {
+    display: none;
+  }
+  .bar-search[data-v-4da8c010] .suggest-input {
+    text-align: center;
+  }
+  .select-guests--btn .body[data-v-60f233aa] {
+    text-align: center;
+  }
+  .bar-search[data-v-4da8c010] .suggestions-list--wrapper {
+    min-width: unset;
+    margin-top: 0;
+  }
+
+  .search-desktop_view-filters .select-guests__main[data-v-a96f417a] {
+    top: 30px;
+  }
+  .sc-datepickerext-wrapper-header--tooltip {
+    font-size: 12px;
+  }
+  .mx-datepicker-popup {
+    width: 100%;
+  }
+  button.mx-btn.mx-btn-text.mx-btn-icon-right {
+    right: 0;
+  }
+  .mx-calendar {
+    width: 100%;
+    padding: 20px 10px;
+  }
+  .search-desktop[data-v-60a68c13] {
+    background: none;
+  }
+  .search-desktop .bar[data-v-60a68c13] {
+    background: none;
+  }
+  .bar-wrap[data-v-4da8c010] {
+    background: none;
+  }
+  .search-desktop_view-filters  .bar--desktop .bar-search[data-v-4da8c010] {
+    background: none;
+  }
+  .search-desktop_view-filters  .bar-search[data-v-4da8c010] .suggest-input {
+    background: #fff;
+    padding: 5px 20px;
+    border-radius: 555px;
+    margin-bottom: 0;
+    text-align: left;
+  }
+  .search-desktop_view-filters  .datepicker-search[data-v-4da8c010] {
+    width: 100%;
+  }
+  .bar--desktop .datepicker-search__item[data-v-4da8c010], .bar--search .datepicker-search__item[data-v-4da8c010] {
+    width: 100%;
+    padding: 0;
+  }
+  [data-v-app] {
+    width: 100%;
+  }
+  .search-desktop_view-filters  .search-widget-field--occupied__in .date {
+    justify-content: flex-end;
+    text-align: right;
+  }
+ .search-desktop_view-filters .select-guests--btn[data-v-60f233aa] {
+    background: #fff;
+    padding: 5px 20px;
+    border-radius: 555px;
+    margin-bottom: 10px;
+    height: 42px;
+  }
+ .search-desktop_view-filters .dpicker__wrapper {
+  height: 42px !important;
+   
+  }
+
+  .search-desktop_view-filters .bar--desktop .bar-search__item[data-v-4da8c010]{
+    height: 42px !important;
+    margin-bottom: 5px !important;
+    margin-top: 0 !important
+  }
+  .search-desktop_view-filters .bar--desktop .bar-search__item[data-v-4da8c010] * {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+  }
+/*   .search-desktop_view-filters  .bar--desktop .bar-search__item[data-v-4da8c010] {
+    margin: 5px 0;
+  } */
+  .search-desktop_view-filters .btn-search-main[data-v-7c2b7dcd] {
+    height: 42px;
+  }
+  .bar-search__item-wrap[data-v-4da8c010] {
+    margin-right: 0 !important
+  }
+
+  .search-desktop_view-filters .search-desktop .bar[data-v-60a68c13]{
+    padding: 0;
+  }
+  
+  .bar-search__item__cols {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 10px;
+  }
+  .bar-search__item__cols .bar-search__item {
+    width: unset !important;
+    margin-right: 10px;
+  }
+  .bar-wrap__right[data-v-4da8c010]{
+    width: 100%;
+  }
+  .bar-search__item__cols  .select-guests[data-v-60f233aa] {
+    position: static;
+  }
+  .bar-search__item__cols   .bar-search__item {
+    position: static;
+  }
+  .bar-search__item-wrap[data-v-4da8c010] {
+    position: static;
+  }
+  .bar-search__item__cols {
+    position: relative;
+    z-index: 99;
+    height: 54px;
+    margin-bottom: 0;
+    margin-top: 6px;
+  }
+  .bar-search__item__colswrapper > div {
+    margin-right: 10px;
+  }
+  .search-desktop_view-filters .select-guests__main[data-v-a96f417a] {
+    left: 0;
+    z-index: 99;
+  }
+  .search-desktop_view-filters .select-guests__main[data-v-a96f417a] {
+    top: 0  ;
+  }
+  .list-wrapper[data-v-2b019af9]{
+    z-index: 999;
+  }
+  .search-desktop .bar[data-v-60a68c13]{
+    padding: 0 10px
+  }
+  .btnfilter {
+    width: 100%;
+    display: inline-block !important;
+    background: #fff;
+    height: 42px !important;
+    border:none !important;
+    border-radius: 555px;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+  .side-menu.active {
+   left: 0;
+   
+  
+    z-index: 9999 !important; 
+  
+  }
+  .search-desktop .side-menu-wrapper[data-v-60a68c13] {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .sc-modal-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    flex-shrink: 0;
+    height: 50px;
+    text-align: center !important;
+    font-size: 16px;
+    line-height: 50px;
+    background-color: #444444 !important;
+    color: white !important;
+    top: 0;
+    z-index: 201;
 }
+.sc-modal-header .sc-modal-title {
+  color: white !important;
+}
+.side-menu-wrapper {
+  background: #fff;
+}
+.your-filters .selected-filters[data-v-a57432e0] .checkbox-button{
+  background: #f6f6f6;
+}
+.your-filters {
+  padding: 0 15px;
+}
+.search-desktop .side-menu-wrapper[data-v-60a68c13] {
+  border-radius: 0;
+}
+.bar-search__item__colswrapper {
+  align-items: center;
+}
+.sc-modal-header {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 0 10px;
+}
+.mx-datepicker-header {
+  padding: 0;
+}
+.dpicker__nav {
+  padding: 0 10px;
+}
+.mx-calendar-range {
+  position: relative;
+}
+button.mx-btn.mx-btn-text.mx-btn-icon-left {
+  top: 18px;
+}
+.mx-table-date .cell.not-current-month 
+{height: 0;font-size: 0;padding: 0;}
+
+
+body {
+  margin: 0;
+}
+.mx-datepicker-popup {
+  margin: 0 !important;
+  top: 0 !important;
+  width: 100% !important;
+}
+.dpicker_values {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px 0;
+  text-align: center;
+  color: #000;
+}
+/* .mx-calendar-content .cell {
+  width: 30px !important;
+  min-width: 30px !important;
+  height: 30px !important;
+} */ 
+.mx-calendar-content .cell {
+  border: none !important;
+}
+
+.main-datepicker-calendar--footer[data-v-1166afda] {
+display: block;
+
+}
+.mx-datepicker-popup {
+  padding-bottom: 90px;
+}
+
+.button.button_dark-gray {
+  display: block;    box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  padding: 12px 20px;font-size: 16px;font-weight: bold;
+  text-transform: uppercase;
+  margin-left: auto;margin-right: auto;
+  background-color: rgb(68, 68, 68);
+  border: 1px solid rgba(0,0,0,.15);
+  color: #fff;
+  
+}
+.mx-datepicker-footer {
+  border-top: none;
+}
+.mx-calendar-content .cell {
+  height: 30px !important;
+}
+.mx-datepicker-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;right: 0;
+  z-index: 99;
+  background: #fff;
+  padding: 15px;
+  box-shadow: 0 0 4px 0 #757575;    box-sizing: border-box;
+}
+.dpicker__footer {
+ 
+}
+.onlydesktop {
+  display: none !important
+}
+.dpicker__footer button.mx-btn.mx-btn-text {
+  margin-bottom: 0 !important;
+}
+.dpicker__footer {
+  margin-bottom: 5px;
+}
+
+.clearfooter {
+  background-color: rgba(245, 20, 20, 0.4) !important;
+  color: #fff !important;
+  border: none;
+}
+.mx-table-date .cell.not-current-month {
+  height: 0 !important
+}
+.mx-datepicker-popup {
+  box-shadow: none;
+  border: none;
+}
+.mx-calendar {
+ margin: auto;
+}
+.mx-calendar+.mx-calendar {
+  border-left: none;
+}
+
+
+}
+

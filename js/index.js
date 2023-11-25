@@ -46,7 +46,14 @@ $(document).ready(function () {
   })
 
   $('.suggestions-list-elem').on("click", function() {
-    $(' .suggest-input').val($(this).find('.suggestions-list-elem--title').text().replace(/,/g, ''))
+    $('.suggest-input').val($(this).find('.suggestions-list-elem--title').text().replace(/,/g, ''))
+    $("[data-toggleblock='suggestions-list']").removeClass("active")
+  })
+  $('.btnfilter').on("click", function() {
+    $(".side-menu").toggleClass("active")
+  })
+  $('.side-menu .icon-app-arrow-left').on("click", function() {
+    $(".side-menu").toggleClass("active")
   })
 
   $('[data-quantitybtn="plus"]').on('click', function() {
